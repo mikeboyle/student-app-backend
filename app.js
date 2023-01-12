@@ -4,12 +4,18 @@
 // Import external stuff (libraries)
 // Import express library
 const express = require('express');
+const cors = require('cors');
 
 // Import OUR stuff (our files, our components)
 const studentsData = require('./studentsData.json');
 
 // Init express application
 const app = express();
+
+// Set up middleware
+// Functions that will work with req, res before
+// the final route handler function
+app.use(cors());
 
 // Define our routes
 
