@@ -8,6 +8,7 @@ const cors = require('cors');
 
 // Import OUR stuff (our files, our components)
 const studentsController = require('./controllers/studentsController');
+const studentsControllerV2 = require('./controllers/v2/studentsControllerV2');
 
 // Init express application
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors());
 
 // Controllers
 app.use('/students', studentsController);
+app.use('/v2/students', studentsControllerV2);
 
 // Define our routes
 
