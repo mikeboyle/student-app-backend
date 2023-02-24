@@ -5,6 +5,7 @@
 // Import express library
 const express = require('express');
 const cors = require('cors');
+const db = require('./db');
 
 // Import OUR stuff (our files, our components)
 const studentsController = require('./controllers/studentsController');
@@ -27,6 +28,17 @@ app.use('/v2/students', studentsControllerV2);
 // Healthcheck route
 app.get('/', (request, response) => {
   response.status(200).json({ data: 'Service is running' });
+});
+
+// TODO: Remove this test route
+app.get('/tests', async (request, response) => {
+  try {
+    const tests = await db.any('SELECT * FROM tests');
+
+    response.status(200).json({ data: tests });
+  } catch (err) {
+    response.status(500).json({ error: err.message });
+  }
 });
 
 
