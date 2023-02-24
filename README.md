@@ -1,3 +1,6 @@
+# Student App Backend
+This is an Express API that serves data about students and grades.
+
 ## TODOs
 1. Create a server with a healthcheck route
     - X install Express
