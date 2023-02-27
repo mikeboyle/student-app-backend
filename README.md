@@ -35,3 +35,6 @@ X What if a request causes an error and express is no longer running? How are we
 x why is it important to have a return inside of an if block when you already have a response?
 
 x Is there a specific order we have to write our routes in our controllers?
+
+
+02/26/2023
