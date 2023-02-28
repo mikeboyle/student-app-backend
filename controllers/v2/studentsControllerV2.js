@@ -9,15 +9,15 @@ const { getGradesByStudentIdV2 } = require('../../queries/v2/gradesQueriesV2');
 
 const studentsControllerV2 = express.Router();
 
-studentsControllerV2.get('/', (request, response) => {
+studentsControllerV2.get('/', async (request, response) => {
   try {
     const { include } = request.query;
     if (include === 'grades') {
       // embed the grades
-      const students = getAllStudentsWithGradesV2();
+      const students = await getAllStudentsWithGradesV2();
       return response.status(200).json({ data: students });
     } else {
-      const students = getAllStudentsV2();
+      const students = await getAllStudentsV2();
       return response.status(200).json({ data: students });
     }
   } catch (err) {
@@ -25,10 +25,10 @@ studentsControllerV2.get('/', (request, response) => {
   }
 });
 
-studentsControllerV2.get('/:id', (request, response) => {
+studentsControllerV2.get('/:id', async (request, response) => {
   try {
     const { id } = request.params;
-    const student = getStudentByIdV2(id);
+    const student = await getStudentByIdV2(id);
 
     if (student) {
       // return 200
@@ -44,15 +44,15 @@ studentsControllerV2.get('/:id', (request, response) => {
 });
 
 // GET /students/:id/grades
-studentsControllerV2.get('/:id/grades', (request, response) => {
+studentsControllerV2.get('/:id/grades', async (request, response) => {
   try {
     const { id } = request.params;
-    const student = getStudentByIdV2(id);
+    const student = await getStudentByIdV2(id);
 
     if (student) {
       // return 200
       // if student, get the student's grades
-      const grades = getGradesByStudentIdV2(id);
+      const grades = await getGradesByStudentIdV2(id);
       return response.status(200).json({ data: grades });
     }
     // return 404
