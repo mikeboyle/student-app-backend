@@ -1,3 +1,25 @@
+# TODOs
+X 1. Set up a database schema and create students and grades tables WITH INDEXES
+X 1. Seed the students and grades tables with data
+X 1. Update the query layer to fetch data from the database (not json)
+X 1. Update the controller layer to use the queries correctly (if needed)
+1. Clean up
+X delete old json files
+X remove /tests endpoint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## TODOs
 1. Create a server with a healthcheck route
     - X install Express
