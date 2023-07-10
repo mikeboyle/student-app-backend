@@ -1,4 +1,3 @@
-hello
 ## TODOs
 1. Create a server with a healthcheck route
     - X install Express
